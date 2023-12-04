@@ -1,0 +1,59 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.AgriSiteClient" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.AgriSiteClient" parent="Base.Theme.AgriSiteClient" />
+
+    <style name="SuccessToast">
+        <item name="stTextBold">true</item>
+        <item name="stTextColor">#fff</item>
+        <item name="stTextSize">14sp</item>
+        <item name="stColorBackground">	#D0F0C0</item>
+        <item name="stSolidBackground">true</item>
+        <item name="stStrokeWidth">3dp</item>
+        <item name="stStrokeColor">	#D0F0C0</item>
+        <item name="stIconStart">@drawable/check_white</item>
+        <!--<item name="stIconEnd">@drawable/ic</item>-->
+        <item name="stLength">LONG</item>
+        LONG or SHORT
+        <item name="stGravity">top</item>
+        top or center
+        <item name="stRadius">5dp</item>
+    </style>
+
+    <style name="FailToast">
+        <item name="stTextBold">true</item>
+        <item name="stTextColor">#fff</item>
+        <item name="stTextSize">14sp</item>
+        <item name="stColorBackground">#F55536</item>
+        <item name="stSolidBackground">true</item>
+        <item name="stStrokeWidth">3dp</item>
+        <item name="stStrokeColor">#F55536</item>
+        <item name="stIconStart">@drawable/crossbutton_white</item>
+        <!--<item name="stIconEnd">@drawable/ic</item>-->
+        <item name="stLength">LONG</item>
+        LONG or SHORT
+        <item name="stGravity">top</item>
+        top or center
+        <item name="stRadius">5dp</item>
+    </style>
+
+    <style name="InsertToast">
+        <item name="stTextBold">true</item>
+        <item name="stTextColor">#fff</item>
+        <item name="stTextSize">14sp</item>
+        <item name="stColorBackground">#57A0D2</item>
+        <item name="stSolidBackground">true</item>
+        <item name="stStrokeWidth">3dp</item>
+        <item name="stStrokeColor">#0892D0</item>
+        <item name="stIconStart">@drawable/check_white</item>
+        <!--<item name="stIconEnd">@drawable/ic</item>-->
+        <item name="stLength">LONG</item>LONG or SHORT
+        <item name="stGravity">top</item>top or center
+        <item name="stRadius">5dp</item>
+    </style>
+
+</resources>

@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".CreateTasks">
+
+    <LinearLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:background="@color/catalogue_color">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Task Creation"
+            android:textSize="20sp"
+            android:textColor="@color/brown"
+            android:textStyle="bold"
+            android:layout_marginTop="15dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal"
+        android:padding="15dp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:id="@+id/tilTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            app:hintEnabled="false"
+            app:helperText="Required*"
+            app:startIconDrawable="@drawable/baseline_add_task_24"
+            app:helperTextTextColor="@color/red"
+            app:boxStrokeColor="@color/light_grey">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/taskTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="Yes"
+                android:hint="Task Title"
+                android:inputType="textPersonName"
+                android:minHeight="48dp"
+                android:textColor="@color/light_grey"
+                android:textColorHint="@color/light_grey"
+                tools:ignore="VisualLintTextFieldSize" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:id="@+id/tilDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            app:hintEnabled="false"
+            app:helperText="Required*"
+            app:startIconDrawable="@drawable/baseline_add_task_24"
+            app:helperTextTextColor="@color/red"
+            app:boxStrokeColor="@color/light_grey">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtdescriptionBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Task Description"
+                android:inputType="textMultiLine"
+                android:minHeight="48dp"
+                android:lines="5"
+                android:autofillHints="No"
+                android:gravity="top|left"
+                android:overScrollMode="always"
+                android:scrollbarStyle="insideInset"
+                android:scrollbars="vertical"
+                android:scrollHorizontally="false"
+                android:textColor="@color/light_grey"
+                android:textColorHint="@color/light_grey"
+                tools:ignore="VisualLintTextFieldSize"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="6dp">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:id="@+id/idStart"
+                android:src="@drawable/start"
+                android:layout_marginTop="10dp"
+                android:contentDescription="@string/start_date" />
+
+            <Button
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/BtnStartDatePicker"
+                android:text="@string/task_start_date"
+                android:textColor="@color/light_grey"
+                style="?android:spinnerStyle"
+                android:onClick="openDatePicker"/>
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:id="@+id/idEnd"
+                android:src="@drawable/end"
+                android:layout_marginTop="10dp"
+                android:contentDescription="@string/end_date" />
+
+            <Button
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/BtnEndDatePicker"
+                android:text="@string/task_end_date"
+                android:textColor="@color/light_grey"
+                style="?android:spinnerStyle"
+                android:onClick="openDatePicker"
+                tools:ignore="VisualLintBounds" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:padding="5dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Task Status"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">
+
+                <AutoCompleteTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/TaskStatus"
+                    android:inputType="none">
+                </AutoCompleteTextView>
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <!--<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:padding="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="marquee"
+                android:focusableInTouchMode="true"
+                android:id="@+id/TextViewSetLocation"
+                android:hint="Switch On Location"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:scrollHorizontally="true"
+                android:singleLine="true" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/GetLocation"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="6.50dp"
+                android:layout_marginEnd="6.50dp"
+                android:layout_marginTop="6.50dp"
+                android:layout_marginBottom="6.50dp"
+                android:backgroundTint="@color/dark_green"/>
+
+        </LinearLayout>-->
+
+        <Button
+            android:id="@+id/btnAddTask"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/catalogue_color"
+            android:text="CREATE TASK"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:cornerRadius="200dp"
+            tools:ignore="VisualLintBounds,VisualLintButtonSize" />
+
+        <Button
+            android:id="@+id/btnRemove"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/catalogue_color"
+            android:text="CLEAR TASK"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:cornerRadius="200dp"
+            tools:ignore="VisualLintBounds,VisualLintButtonSize" />
+</LinearLayout>
+</LinearLayout>

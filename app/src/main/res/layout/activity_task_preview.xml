@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".TaskPreview">
+
+    <LinearLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:background="@drawable/cat_background">
+
+        <TextView
+            android:id="@+id/myTasksTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Approved Tasks"
+            android:textSize="20sp"
+            android:textColor="@color/brown"
+            android:textStyle="bold"
+            android:layout_marginTop="15dp"/>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:id="@+id/task_preview_recycle_view"/>
+</LinearLayout>
