@@ -267,7 +267,7 @@ public class TaskRecycleViewAdapter extends RecyclerView.Adapter<TaskRecycleView
     static class MyViewHolder extends RecyclerView.ViewHolder {
 
         // Declaring TextViews
-        private final TextView title, description, startdate, enddate, taskStatus;
+        private final TextView title, description, startdate, enddate;
         Button btnEdit, btnDelete;
 
         public MyViewHolder(@NonNull View itemView) {
@@ -279,7 +279,7 @@ public class TaskRecycleViewAdapter extends RecyclerView.Adapter<TaskRecycleView
             description = itemView.findViewById(R.id.Description_of_Task);
             startdate = itemView.findViewById(R.id.Start_of_Task);
             enddate = itemView.findViewById(R.id.End_of_Task);
-            taskStatus = itemView.findViewById(R.id.Task_Status);
+//            taskStatus = itemView.findViewById(R.id.Task_Status);
 
             btnEdit = (Button) itemView.findViewById(R.id.btnEdit);
             btnDelete = (Button) itemView.findViewById(R.id.btnDelete);
