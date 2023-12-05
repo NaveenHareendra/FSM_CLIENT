@@ -6,7 +6,8 @@
        <item android:id="@+id/nav_createtasks" android:title="Create Tasks" android:icon="@drawable/baseline_addchart_24"/>
        <item android:id="@+id/nav_acceptedtaskboard" android:title="Accepted Tasks" android:icon="@drawable/baseline_ballot_24"/>
        <item android:id="@+id/nav_reports" android:title="Reports" android:icon="@drawable/reports"/>
-       <item android:id="@+id/nav_notifications" android:title="Notifications" android:icon="@drawable/baseline_notifications_24"/>
-       <item android:id="@+id/nav_profile" android:title="Profile" android:icon="@drawable/baseline_account_box_24"/><item android:id="@+id/nav_map" android:title="Show on Map" android:icon="@drawable/baseline_location_on_24"/>
+       <item android:id="@+id/nav_profile" android:title="Profile" android:icon="@drawable/baseline_account_box_24"/>
+        <item android:id="@+id/nav_map" android:title="Current Location" android:icon="@drawable/baseline_location_on_24"/>
+        <item android:id="@+id/nav_premap" android:title="Location History" android:icon="@drawable/baseline_location_on_24"/>
     </group>
 </menu>

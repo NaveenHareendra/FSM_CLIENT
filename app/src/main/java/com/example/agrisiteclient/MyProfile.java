@@ -5,18 +5,26 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.auth.FirebaseAuth;
+
+import io.github.muddz.styleabletoast.StyleableToast;
 
 public class MyProfile extends AppCompatActivity {
 
     String fullName, VSDomainFromDB, userIDFromDB;
     TextView TextViewAdminFullName, TextViewAdminProvince, TextViewAdminDivision, TextViewAdminVSDomain;
+
+    Button BtnLogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +36,29 @@ public class MyProfile extends AppCompatActivity {
         TextViewAdminProvince = findViewById(R.id.TextViewAdminProvince);
         TextViewAdminDivision = findViewById(R.id.TextViewAdminDivision);
         TextViewAdminVSDomain = findViewById(R.id.TextViewAdminVSDomain);
+
+
+        //Button Initialization
+        BtnLogout = findViewById(R.id.BtnLogout);
+
+        BtnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Sign out the user
+                FirebaseAuth.getInstance().signOut();
+
+                // Redirect to the login activity
+                StyleableToast.makeText(MyProfile.this, "Logout Successfully!", Toast.LENGTH_SHORT, R.style.SuccessToast).show();
+                startActivity(new Intent(MyProfile.this, LoginPage.class));
+
+                finish(); // Close the current activity
+            }
+        });
+
+
+
+
+
 
         // Retrieve userIDFromDB from intent
         Intent intent = getIntent();

@@ -35,7 +35,7 @@ import java.util.Locale;
 import io.github.muddz.styleabletoast.StyleableToast;
 
 public class CreateTasks extends AppCompatActivity {
-    String fullName, VSDomainFromDB, userIDFromDB;
+    String fullName, VSDomainFromDB, userIDFromDB, DivisionFromDB;
     AutoCompleteTextView autoCompleteTextView;
     TextInputEditText taskTitle, txtdescriptionBox;
     TextView TextViewSetLocation;
@@ -212,11 +212,12 @@ public class CreateTasks extends AppCompatActivity {
         String enddate = btnEnd.getText().toString();
         taskstatus = autoCompleteTextView.getText().toString();
         fullName = getIntent().getStringExtra("full_name_of_user");
+        DivisionFromDB = getIntent().getStringExtra("selectedDivision");
         VSDomainFromDB = getIntent().getStringExtra("selectedVSDomain");
         userIDFromDB = getIntent().getStringExtra("userID");
 ;
         // Create the task object
-        Tasks tasks = new Tasks(uniqueKey, title, description, startdate, enddate, taskstatus,fullName, VSDomainFromDB,userIDFromDB);
+        Tasks tasks = new Tasks(uniqueKey, title, description, startdate, enddate, taskstatus,fullName,DivisionFromDB ,VSDomainFromDB,userIDFromDB);
 
         // Generate a unique key for the task
         uniqueKey = FirebaseDatabase.getInstance().getReference().child("Tasks").push().getKey();
@@ -343,6 +344,7 @@ public class CreateTasks extends AppCompatActivity {
             fullName = intent.getStringExtra("full_name_of_user");
             VSDomainFromDB = intent.getStringExtra("selectedVSDomain");
             userIDFromDB = intent.getStringExtra("userID");
+            DivisionFromDB = intent.getStringExtra("selectedDivision");
 
             //Toast.makeText(CreateTasks.this, "Your Selected Division is: " + VSDomainFromDB, Toast.LENGTH_SHORT).show();
     }

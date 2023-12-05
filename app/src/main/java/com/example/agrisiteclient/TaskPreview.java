@@ -27,7 +27,7 @@ public class TaskPreview extends AppCompatActivity {
 
     private final List<Tasks> tasksList = new ArrayList<>();
     private TaskRecycleViewAdapter adapter;
-    String fullName, VSDomainFromDB, userIDFromDB;
+    String fullName, VSDomainFromDB, userIDFromDB, DivisionFromDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +58,7 @@ public class TaskPreview extends AppCompatActivity {
                     Log.d("FirebaseData", "Processing task: " + Tasks.getKey());
 
                     //To prevent crashes, check if tasks has all the details in the DB
-                    if (Tasks.hasChild("title") && Tasks.hasChild("description") && Tasks.hasChild("startdate") && Tasks.hasChild("enddate") && Tasks.hasChild("taskStatus") && Tasks.hasChild("fullName") && Tasks.hasChild("vsdomainFromDB") && Tasks.hasChild("userIDFromDB")  /*&& Tasks.hasChild("FOLatitude") && Tasks.hasChild("FOLongitude")*/) {
+                    if (Tasks.hasChild("title") && Tasks.hasChild("description") && Tasks.hasChild("startdate") && Tasks.hasChild("enddate") && Tasks.hasChild("taskStatus") && Tasks.hasChild("fullName") && Tasks.hasChild("divisionFromDB") && Tasks.hasChild("vsdomainFromDB") && Tasks.hasChild("userIDFromDB")  /*&& Tasks.hasChild("FOLatitude") && Tasks.hasChild("FOLongitude")*/) {
 
                         String FOUserID = Tasks.child("userIDFromDB").getValue(String.class);
                         String FOFullName = Tasks.child("fullName").getValue(String.class);
@@ -70,6 +70,7 @@ public class TaskPreview extends AppCompatActivity {
                         Log.d("FirebaseData TASK DATA", "End Date: " + Tasks.child("enddate").getValue());
                         Log.d("FirebaseData TASK DATA", "VSDomain: " + Tasks.child("vsdomainFromDB").getValue());
                         Log.d("FirebaseData TASK DATA", "Full Name: " + Tasks.child("fullName").getValue());
+                        Log.d("FirebaseData TASK DATA", "Division: " + Tasks.child("divisionFromDB").getValue());
                         Log.d("FirebaseData TASK DATA", "Task Status: " + Tasks.child("taskStatus").getValue());
 
                         if (FOUserID != null && FOUserID.equals(userIDFromDB) && Status_of_task.equals("Accepted")) {
@@ -85,12 +86,13 @@ public class TaskPreview extends AppCompatActivity {
                             final String getStart = Tasks.child("startdate").getValue(String.class);
                             final String getEnd = Tasks.child("enddate").getValue(String.class);
                             final String getTaskStatus = Tasks.child("taskStatus").getValue(String.class);
-                            final String getFullName = Tasks.child("FullName").getValue(String.class);
+                            final String getFullName = Tasks.child("fullName").getValue(String.class);
+                            final String getDivisionFromDB = Tasks.child("divisionFromDB").getValue(String.class);
                             final String getVSDomainFromDB = Tasks.child("vsdomainFromDB").getValue(String.class);
                             final String getUserIDFromDB = Tasks.child("userID").getValue(String.class);
 
                             //Creating task items with task details
-                            Tasks tasks = new Tasks(getKey, getTitle, getDescription, getStart, getEnd, getTaskStatus, getFullName, getVSDomainFromDB, getUserIDFromDB);
+                            Tasks tasks = new Tasks(getKey, getTitle, getDescription, getStart, getEnd, getTaskStatus, getFullName, getDivisionFromDB ,getVSDomainFromDB, getUserIDFromDB);
 
                             //Adding task items with task details
                             tasksList.add(tasks);
@@ -125,6 +127,7 @@ public class TaskPreview extends AppCompatActivity {
         fullName = intent.getStringExtra("full_name_of_user");
         VSDomainFromDB = intent.getStringExtra("selectedVSDomain");
         userIDFromDB = intent.getStringExtra("userID");
+        DivisionFromDB = intent.getStringExtra("selectedDivision");
 
 
         //Toast.makeText(TaskPreview.this, "Your Selected FullName in TP Activity: " + fullName, Toast.LENGTH_SHORT).show();

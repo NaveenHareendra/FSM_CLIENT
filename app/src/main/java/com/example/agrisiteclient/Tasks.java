@@ -5,9 +5,9 @@ import java.util.Date;
 public class Tasks {
     private String key;
 
-    String title, startdate, enddate, description, taskStatus, fullName, VSDomainFromDB, userIDFromDB;
+    String title, startdate, enddate, description, taskStatus, fullName, DivisionFromDB,VSDomainFromDB, userIDFromDB;
 
-    public Tasks(String uniqueKey, String title, String description, String startdate, String enddate, String taskStatus, String fullName, String  VSDomainFromDB, String userIDFromDB/*, String division,String location,String FOLatitude ,String FOLongitude*/) {
+    public Tasks(String uniqueKey, String title, String description, String startdate, String enddate, String taskStatus, String fullName, String DivisionFromDB,String  VSDomainFromDB, String userIDFromDB/*, String division,String location,String FOLatitude ,String FOLongitude*/) {
 
         this.key = uniqueKey;
         this.title = title;
@@ -16,6 +16,7 @@ public class Tasks {
         this.enddate = enddate;
         this.taskStatus = taskStatus;
         this.fullName = fullName;
+        this.DivisionFromDB = DivisionFromDB;
         this.VSDomainFromDB =  VSDomainFromDB;
         this.userIDFromDB = userIDFromDB;
     }
@@ -110,4 +111,12 @@ public class Tasks {
         this.userIDFromDB = userIDFromDB;
     }
 
+
+    public String getDivisionFromDB() {
+        return DivisionFromDB;
+    }
+
+    public void setDivisionFromDB(String DivisionFromDB) {
+        DivisionFromDB = DivisionFromDB;
+    }
 }

@@ -28,7 +28,7 @@ public class NavigationDrawer extends AppCompatActivity {
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     TextView AdminNameText;
-    String fullName, VSDomainFromDB, userIDFromDB;
+    String fullName, VSDomainFromDB, userIDFromDB, DivisionFromDB;
     TextView TextViewAllTasksCount, TextViewOpenedTaskCount, TextViewAcceptedTasksCount,TextViewRejectedTasksCount,TextViewInCompletedTasksCount,TextViewCompletedTasksCount, TextViewInprogressTasksCount, TextViewOnHoldTasksCount;
     int totalcount = 0, openedCount = 0, inProgressCount = 0, onHoldCount = 0, completedCount = 0, incompletedCount = 0, rejectedcount = 0, acceptedCount = 0;
     DatabaseReference obj;
@@ -88,6 +88,8 @@ public class NavigationDrawer extends AppCompatActivity {
                     Log.i("MENU_DRAWER_TAG", "Create Task item is clicked");
 
                     Intent i = new Intent(NavigationDrawer.this, CreateTasks.class);
+
+                    i.putExtra("selectedDivision", DivisionFromDB);
                     i.putExtra("selectedVSDomain", VSDomainFromDB);
                     i.putExtra("full_name_of_user", fullName);
                     i.putExtra("userID", userIDFromDB);
@@ -101,6 +103,7 @@ public class NavigationDrawer extends AppCompatActivity {
                     Log.i("MENU_DRAWER_TAG", "Accepted Task Board item is clicked");
 
                     Intent i = new Intent(NavigationDrawer.this, TaskPreview.class);
+                    i.putExtra("selectedDivision", DivisionFromDB);
                     i.putExtra("selectedVSDomain", VSDomainFromDB);
                     i.putExtra("full_name_of_user", fullName);
                     i.putExtra("userID", userIDFromDB);
@@ -115,6 +118,7 @@ public class NavigationDrawer extends AppCompatActivity {
 
                     Intent i = new Intent(NavigationDrawer.this, DownloadReports.class);
 
+                    i.putExtra("selectedDivision", DivisionFromDB);
                     i.putExtra("selectedVSDomain", VSDomainFromDB);
                     i.putExtra("full_name_of_user", fullName);
                     i.putExtra("userID", userIDFromDB);
@@ -124,16 +128,22 @@ public class NavigationDrawer extends AppCompatActivity {
 
                     startActivity(i);
 
-                } else if (itemId == R.id.nav_notifications) {
-                    Log.i("MENU_DRAWER_TAG", "Notifications item is clicked");
-                    Intent i = new Intent(NavigationDrawer.this, Calendar.class);
+                } else if (itemId == R.id.nav_premap) {
+                    Log.i("MENU_DRAWER_TAG", "Location History item is clicked");
+                    Intent i = new Intent(NavigationDrawer.this, FOPreviousLocation.class);
                     startActivity(i);
                     drawerLayout.closeDrawer(GravityCompat.START);
+
+                    i.putExtra("selectedDivision", DivisionFromDB);
+                    i.putExtra("selectedVSDomain", VSDomainFromDB);
+                    i.putExtra("full_name_of_user", fullName);
+                    i.putExtra("userID", userIDFromDB);
 
                 } else if (itemId == R.id.nav_map) {
                 Log.i("MENU_DRAWER_TAG", "Profile item is clicked");
                 Intent i = new Intent(NavigationDrawer.this, FieldOfficerLocation.class);
 
+                    i.putExtra("selectedDivision", DivisionFromDB);
                     i.putExtra("selectedVSDomain", VSDomainFromDB);
                     i.putExtra("full_name_of_user", fullName);
                     i.putExtra("userID", userIDFromDB);
@@ -145,6 +155,7 @@ public class NavigationDrawer extends AppCompatActivity {
                     Log.i("MENU_DRAWER_TAG", "Profile item is clicked");
                     Intent i = new Intent(NavigationDrawer.this, MyProfile.class);
 
+                    i.putExtra("selectedDivision", DivisionFromDB);
                     i.putExtra("selectedVSDomain", VSDomainFromDB);
                     i.putExtra("full_name_of_user", fullName);
                     i.putExtra("userID", userIDFromDB);
@@ -221,10 +232,12 @@ public class NavigationDrawer extends AppCompatActivity {
         Intent intent = getIntent();
         fullName = intent.getStringExtra("full_name_of_user");
         VSDomainFromDB = intent.getStringExtra("selectedVSDomain");
+        DivisionFromDB = intent.getStringExtra("selectedDivision");
         userIDFromDB = intent.getStringExtra("userID");
 
         // Print to verify values
         Log.d("NavigationDrawer", "Full Name: " + fullName);
+        Log.d("NavigationDrawer", "DivisionFromDB: " + DivisionFromDB);
         Log.d("NavigationDrawer", "VSDomainFromDB: " + VSDomainFromDB);
 
         AdminNameText.setText(fullName);

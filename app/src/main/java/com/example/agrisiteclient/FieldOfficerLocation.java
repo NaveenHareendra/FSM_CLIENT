@@ -162,6 +162,7 @@ public class FieldOfficerLocation extends AppCompatActivity implements OnMapRead
 
         // Push the location data to Firebase
         //locationReference.push().setValue(locationData);
+
         // Push the location data to Firebase
         locationReference.child(userIDFromDB).setValue(locationData);
     }

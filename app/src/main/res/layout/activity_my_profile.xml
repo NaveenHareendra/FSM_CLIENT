@@ -141,6 +141,7 @@
         android:layout_marginTop="35dp"
         android:backgroundTint="@color/catalogue_color"
         android:textColor="@color/white"
+        android:id="@+id/BtnLogout"
         android:text="LOG OUT"/>
 
 

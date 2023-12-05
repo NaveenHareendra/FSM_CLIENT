@@ -96,6 +96,7 @@ public class LoginPage extends AppCompatActivity {
                         String fullnameFromDB = userSnapshot.child("full_name_of_user").getValue(String.class);
                         String passwordFromDB = userSnapshot.child("user_password").getValue(String.class);
                         String VSDomainFromDB = userSnapshot.child("selectedVSDomain").getValue(String.class);
+                        String DivisionFromDB = userSnapshot.child("selectedDivision").getValue(String.class);
                         String userIDFromDB = userSnapshot.getKey();
 
                         if ( roleFromDB != null && roleFromDB.equals("Field Officer") && passwordFromDB != null && passwordFromDB.equals(User_password)) {
@@ -107,10 +108,13 @@ public class LoginPage extends AppCompatActivity {
                             //Toast.makeText(LoginPage.this, "Selected name is 1: " +fullnameFromDB, Toast.LENGTH_SHORT).show();
 
                             i.putExtra("selectedVSDomain", VSDomainFromDB);
-                            //Toast.makeText(LoginPage.this, "Selected Division is 1 : " +VSDomainFromDB, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginPage.this, "Selected VS Domain is 1 : " +VSDomainFromDB, Toast.LENGTH_SHORT).show();
+
+                            i.putExtra("selectedDivision", DivisionFromDB);
+                            Toast.makeText(LoginPage.this, "Selected Division is 1 : " +DivisionFromDB, Toast.LENGTH_SHORT).show();
 
                             i.putExtra("userID", userIDFromDB);
-                            Toast.makeText(LoginPage.this, "Selected UserID : " +userIDFromDB, Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(LoginPage.this, "Selected UserID : " +userIDFromDB, Toast.LENGTH_SHORT).show();
 
                             startActivity(i);
 
