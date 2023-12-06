@@ -108,10 +108,10 @@ public class LoginPage extends AppCompatActivity {
                             //Toast.makeText(LoginPage.this, "Selected name is 1: " +fullnameFromDB, Toast.LENGTH_SHORT).show();
 
                             i.putExtra("selectedVSDomain", VSDomainFromDB);
-                            Toast.makeText(LoginPage.this, "Selected VS Domain is 1 : " +VSDomainFromDB, Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(LoginPage.this, "Selected VS Domain is 1 : " +VSDomainFromDB, Toast.LENGTH_SHORT).show();
 
                             i.putExtra("selectedDivision", DivisionFromDB);
-                            Toast.makeText(LoginPage.this, "Selected Division is 1 : " +DivisionFromDB, Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(LoginPage.this, "Selected Division is 1 : " +DivisionFromDB, Toast.LENGTH_SHORT).show();
 
                             i.putExtra("userID", userIDFromDB);
                             //Toast.makeText(LoginPage.this, "Selected UserID : " +userIDFromDB, Toast.LENGTH_SHORT).show();

@@ -153,8 +153,8 @@ public class DownloadReports extends AppCompatActivity {
                 float completionRatio = totalTasks == 0 ? 0 : ((float) completedTasks / totalTasks);
                 float incompletionRatio = ((float)(totalTasks - completedTasks)/totalTasks);
 
-                Toast.makeText(DownloadReports.this, "COMPLETION RATIO: " +completionRatio, Toast.LENGTH_SHORT).show();
-                Toast.makeText(DownloadReports.this, "INCOMPLETION RATIO: " +incompletionRatio, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(DownloadReports.this, "COMPLETION RATIO: " +completionRatio, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(DownloadReports.this, "INCOMPLETION RATIO: " +incompletionRatio, Toast.LENGTH_SHORT).show();
 
                 Log.d("COMPLETE RATIO","AS RATIO"+completionRatio);
                 Log.d("INCOMPLETE RATIO","AS RATIO"+incompletionRatio);
